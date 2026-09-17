@@ -1,0 +1,81 @@
+V1 FIRST LINEAR-REGRESSION EVALUATION
+
+All metrics use rolling historical out-of-sample predictions from 2012-2025.
+Primary baseline: previous-season PPG.
+Secondary baseline: fold-local historical position mean.
+Top-N is fixed at QB=10, RB=20, WR=20, TE=10.
+Success rules were fixed before classification: lower aggregate MAE, more
+season wins than losses, and Spearman ranking at least as high as baseline.
+
+QB
+Classification: Mixed
+Linear MAE: 3.5657 PPG
+Baseline MAE: 3.7412 PPG
+MAE improvement: 0.1755 PPG (4.69%)
+Season record versus baseline: 9 wins, 0 ties, 5 losses
+Overall Spearman: 0.6316
+Excluded rows: 215
+Unstable coefficient flags: 7
+Strong feature-correlation pairs (|r| >= 0.8): 4
+  age_entering_season vs years_experience_entering_season: r=0.973
+  previous_qb_rushing_attempts_per_game vs previous_qb_rushing_yards_per_game: r=0.934
+  previous_season_ppg vs previous_passing_touchdowns_per_game: r=0.885
+  previous_season_ppg vs three_season_mean_ppg: r=0.840
+
+RB
+Classification: Successful
+Linear MAE: 2.5043 PPG
+Baseline MAE: 2.7175 PPG
+MAE improvement: 0.2131 PPG (7.84%)
+Season record versus baseline: 11 wins, 0 ties, 3 losses
+Overall Spearman: 0.7265
+Excluded rows: 510
+Unstable coefficient flags: 1
+Strong feature-correlation pairs (|r| >= 0.8): 8
+  previous_rushing_attempts_per_game vs previous_opportunities_per_game: r=0.972
+  age_entering_season vs years_experience_entering_season: r=0.937
+  previous_season_ppg vs previous_opportunities_per_game: r=0.929
+  previous_season_ppg vs previous_rushing_attempts_per_game: r=0.906
+  previous_season_ppg vs three_season_mean_ppg: r=0.886
+  three_season_mean_ppg vs previous_opportunities_per_game: r=0.865
+  previous_season_ppg vs previous_rushing_touchdowns_per_game: r=0.860
+  three_season_mean_ppg vs previous_rushing_attempts_per_game: r=0.849
+
+WR
+Classification: Successful
+Linear MAE: 1.9030 PPG
+Baseline MAE: 2.0286 PPG
+MAE improvement: 0.1257 PPG (6.19%)
+Season record versus baseline: 12 wins, 0 ties, 2 losses
+Overall Spearman: 0.7459
+Excluded rows: 756
+Unstable coefficient flags: 1
+Strong feature-correlation pairs (|r| >= 0.8): 6
+  previous_season_ppg vs previous_receiving_yards_per_game: r=0.969
+  age_entering_season vs years_experience_entering_season: r=0.949
+  previous_season_ppg vs three_season_mean_ppg: r=0.898
+  previous_rushing_attempts_per_game vs previous_rushing_yards_per_game: r=0.896
+  previous_season_ppg vs previous_receiving_touchdowns_per_game: r=0.891
+  three_season_mean_ppg vs previous_receiving_yards_per_game: r=0.887
+
+TE
+Classification: Successful
+Linear MAE: 1.3245 PPG
+Baseline MAE: 1.4778 PPG
+MAE improvement: 0.1533 PPG (10.37%)
+Season record versus baseline: 14 wins, 0 ties, 0 losses
+Overall Spearman: 0.7141
+Excluded rows: 386
+Unstable coefficient flags: 3
+Strong feature-correlation pairs (|r| >= 0.8): 5
+  age_entering_season vs years_experience_entering_season: r=0.950
+  previous_season_ppg vs previous_receiving_yards_per_game: r=0.940
+  previous_season_ppg vs three_season_mean_ppg: r=0.890
+  three_season_mean_ppg vs previous_receiving_yards_per_game: r=0.864
+  previous_season_ppg vs previous_receiving_touchdowns_per_game: r=0.858
+
+INTERPRETATION LIMITS
+Coefficient instability is diagnostic and does not change V1 features.
+Strong correlations can make individual coefficients hard to interpret.
+No injury causes are inferred, no 2026 predictions are generated, and
+no alternative model or optional feature is tested in this evaluation.

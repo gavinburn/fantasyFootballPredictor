@@ -1,0 +1,19 @@
+GRADIENT-BOOSTED DECISION TREE EXPERIMENT
+==============================================================================
+
+Models use frozen V2 features and identical chronological outer cohorts.
+Learning rate, leaf count, iteration count, leaf size, and loss are selected
+inside each outer training history. Internal random early stopping is disabled.
+TE residual boosting uses V2 fallback through 2016 and bounded corrections thereafter.
+Positive MAE improvement favors gradient boosting over V2.
+
+position                 specification   seasons  player_seasons  candidate_mae   v2_mae  mae_improvement_vs_v2  percent_improvement_vs_v2  seasons_improved  seasons_evaluated  candidate_spearman  v2_spearman  spearman_change  season_block_95_low  season_block_95_high  mae_pass  season_consistency_pass  spearman_pass decision
+      QB      GRADIENT_BOOSTING_DIRECT 2012-2025             512       3.360294 3.245169              -0.115125                  -3.547587                 3                 14            0.665850     0.674352        -0.008502            -0.219751             -0.014240     False                    False          False   REJECT
+      RB      GRADIENT_BOOSTING_DIRECT 2021-2025             410       2.352519 2.361668               0.009149                   0.387381                 2                  5            0.786039     0.805955        -0.019916            -0.055590              0.077353      True                    False          False   REJECT
+      TE      GRADIENT_BOOSTING_DIRECT 2012-2025             968       1.354158 1.319194              -0.034965                  -2.650449                 5                 14            0.699727     0.713134        -0.013408            -0.079831              0.007774     False                    False          False   REJECT
+      TE GRADIENT_BOOSTING_TE_RESIDUAL 2012-2025             968       1.325740 1.319194              -0.006547                  -0.496252                 3                 14            0.709075     0.713134        -0.004059            -0.029602              0.016698     False                    False           True   REJECT
+      WR      GRADIENT_BOOSTING_DIRECT 2019-2025             929       1.763580 1.766940               0.003360                   0.190132                 4                  7            0.786366     0.786702        -0.000335            -0.049848              0.047530      True                     True           True  PROMOTE
+
+TE residual active-period detail (2017-2025)
+Mean MAE improvement versus V2: -0.009871 PPG
+Active seasons improved: 3 of 9

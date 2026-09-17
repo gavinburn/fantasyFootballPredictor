@@ -1,0 +1,21 @@
+SELECTED POSITION-SPECIFIC FEATURE SET
+==============================================================================
+
+This combines only features selected after the Attempt 3 and experiments 3-5 ablations.
+Historical Attempt 1, Attempt 2, Attempt 2.1, Attempt 3, and isolated experiment artifacts were not overwritten.
+Rookies and other no-prior-history rows remain outside these veteran models.
+RB uses veteran-aligned Attempt 2.1 inputs plus fold-calibrated market-implied PPG; it does not inherit the rejected RB structural bundle or an ECR-availability flag.
+WR uses the accepted structural group plus pass-play participation rate and targets per participated pass play. A participation-rate-only fallback is fit and reported separately.
+TE uses the promoted bounded three-component competition residual on top of the preserved V1 pipeline. The original V1 model remains available for rollback.
+
+Chronological outer-fold comparison
+-----------------------------------
+position                      specification   seasons  folds  players  candidate_mae           reference  reference_same_cohort_mae  mae_improvement  seasons_improved  season_block_95_low  season_block_95_high
+      QB                      SELECTED_MAIN 2012-2025     14      512       3.245169 ATTEMPT2_1_ADAPTIVE                   3.494660         0.249491                13             0.146663              0.354912
+      RB                      SELECTED_MAIN 2021-2025      5      410       2.361668 ATTEMPT2_1_ADAPTIVE                   2.433201         0.071533                 4             0.007414              0.151831
+      TE   SELECTED_TE_CONSTRAINED_RESIDUAL 2012-2025     14      968       1.319194           FROZEN_V1                   1.324732         0.005538                 6            -0.000191              0.011620
+      WR                      SELECTED_MAIN 2019-2025      7      929       1.766940 ATTEMPT2_1_ADAPTIVE                   1.830425         0.063485                 7             0.030108              0.096350
+      WR SELECTED_WR_PARTICIPATION_FALLBACK 2019-2025      7      929       1.769450 ATTEMPT2_1_ADAPTIVE                   1.830425         0.060975                 7             0.028776              0.095429
+
+Positive MAE improvement favors the selected candidate over the current operational reference on the identical cohort.
+RB market results remain limited to 2021-2025; WR participation results cover 2019-2025. TE uses V1 fallback for 2012-2016 and nested constrained residual predictions for 2017-2025.

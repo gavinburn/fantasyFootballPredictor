@@ -4,6 +4,41 @@ __pycache__/
 .DS_Store
 .pytest_cache/
 .ruff_cache/
+.matplotlib/
 build/
 dist/
 *.egg-info/
+
+# Local research workspace; selected source and reports are copied to this repo.
+fantasyFootballAllData/
+
+# Generated historical data, models, and reports. The small published 2026
+# snapshot and curated selected reports are already tracked explicitly.
+data/raw/
+data/interim/
+data/processed/
+data/predictions/
+data/attempt_*/
+data/feature_experiments_3_5/
+data/selected_feature_set/
+data/decision_tree/
+data/random_forest/
+data/gradient_boosting/
+data/contract_experiment/
+data/te_*/
+data/adp_benchmark/
+data/deployment_inputs/
+models/attempt_*/
+models/decision_tree/
+models/random_forest/
+models/gradient_boosting/
+models/contract_experiment/
+models/te_*/
+reports/attempt_*/
+reports/feature_experiments_3_5/
+reports/decision_tree/
+reports/random_forest/
+reports/gradient_boosting/
+reports/contract_experiment/
+reports/te_*/
+reports/adp_benchmark/

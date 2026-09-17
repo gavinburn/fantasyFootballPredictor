@@ -1,0 +1,21 @@
+V2, V1, AND PREVIOUS-SEASON PPG COMPARISON
+============================================================
+
+All three methods are evaluated on identical player-season rows within
+each position. Lower MAE and RMSE are better; higher Spearman is better.
+Coverage varies because the promoted RB market and WR participation
+features are not available for the full 2012-2025 validation period.
+
+position evaluation_seasons  player_seasons               model  mae_ppg  rmse_ppg  spearman  mae_improvement_vs_previous_ppg  mae_percent_improvement_vs_previous_ppg  v2_mae_improvement_vs_v1
+      QB          2012-2025             512 Previous-season PPG   3.7019    4.8559    0.6462                           0.0000                                   0.0000                       NaN
+      QB          2012-2025             512                  V1   3.5466    4.5946    0.6326                           0.1553                                   4.1946                       NaN
+      QB          2012-2025             512                  V2   3.2452    4.2169    0.6744                           0.4567                                  12.3366                    0.3014
+      RB          2021-2025             410 Previous-season PPG   2.6335    3.5422    0.7604                           0.0000                                   0.0000                       NaN
+      RB          2021-2025             410                  V1   2.4085    3.1239    0.7885                           0.2249                                   8.5405                       NaN
+      RB          2021-2025             410                  V2   2.3617    3.0436    0.8060                           0.2718                                  10.3206                    0.0469
+      TE          2012-2025             968 Previous-season PPG   1.4968    1.9715    0.6777                           0.0000                                   0.0000                       NaN
+      TE          2012-2025             968                  V1   1.3172    1.7389    0.7129                           0.1797                                  12.0042                       NaN
+      TE          2012-2025             968                  V2   1.3192    1.7419    0.7131                           0.1776                                  11.8680                   -0.0020
+      WR          2019-2025             929 Previous-season PPG   2.0111    2.5886    0.7498                           0.0000                                   0.0000                       NaN
+      WR          2019-2025             929                  V1   1.8494    2.3544    0.7517                           0.1617                                   8.0405                       NaN
+      WR          2019-2025             929                  V2   1.7669    2.2261    0.7867                           0.2442                                  12.1405                    0.0825

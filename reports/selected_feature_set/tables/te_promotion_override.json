@@ -1,0 +1,37 @@
+{
+  "status": "PROMOTED_BY_USER_APPROVED_PRACTICAL_TOLERANCE",
+  "previous_model": "models/te_linear_regression.joblib",
+  "rollback_model_preserved": true,
+  "selected_model": "models/selected_feature_set/te_selected_constrained_residual.joblib",
+  "strict_confirmation_decision": "FAIL",
+  "overridden_check": "featured_tier_bias_pass",
+  "featured_tier_bias_change_ppg": -0.011362257655036512,
+  "approved_practical_tolerance_ppg": 0.02,
+  "other_confirmation_checks": {
+    "mae_threshold_pass": true,
+    "season_consistency_pass": true,
+    "spearman_pass": true,
+    "low_tier_bias_pass": true
+  },
+  "locked_candidate": {
+    "components": [
+      "V1_PLUS_CENTERED_EFFECTIVE_COUNT_RESIDUAL",
+      "V1_PLUS_HIGH_BURDEN_PENALTY_ONLY",
+      "V1_PLUS_MULTI_THRESHOLD_COMPETITION_BURDENS"
+    ],
+    "parameters": {
+      "V1_PLUS_CENTERED_EFFECTIVE_COUNT_RESIDUAL": {
+        "coefficient": -0.15
+      },
+      "V1_PLUS_HIGH_BURDEN_PENALTY_ONLY": {
+        "penalty": 0.1
+      },
+      "V1_PLUS_MULTI_THRESHOLD_COMPETITION_BURDENS": {
+        "penalty_2": 0.05,
+        "penalty_4": 0.0,
+        "penalty_6": 0.0
+      }
+    },
+    "combined_shrinkage": 1.0
+  }
+}

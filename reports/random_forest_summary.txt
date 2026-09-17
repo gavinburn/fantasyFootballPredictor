@@ -1,0 +1,20 @@
+RANDOM FOREST REGRESSION EXPERIMENT
+==============================================================================
+
+Forests use frozen V2 features and identical player-season cohorts.
+Each outer fold selects depth, leaf size, feature fraction, and row fraction
+inside chronological inner folds using 150 trees per fit.
+Final saved forests use 500 trees.
+TE residual forests use exact V2 fallback through 2016 and bounded corrections thereafter.
+Positive MAE improvement favors random forest over V2.
+
+position             specification   seasons  player_seasons  candidate_mae   v2_mae  mae_improvement_vs_v2  percent_improvement_vs_v2  seasons_improved  seasons_evaluated  candidate_spearman  v2_spearman  spearman_change  season_block_95_low  season_block_95_high  mae_pass  season_consistency_pass  spearman_pass decision
+      QB      RANDOM_FOREST_DIRECT 2012-2025             512       3.330294 3.245169              -0.085125                  -2.623116                 6                 14            0.670705     0.674352        -0.003647            -0.180541              0.018285     False                    False           True   REJECT
+      RB      RANDOM_FOREST_DIRECT 2021-2025             410       2.433414 2.361668              -0.071747                  -3.037962                 0                  5            0.788618     0.805955        -0.017338            -0.125605             -0.017387     False                    False          False   REJECT
+      TE      RANDOM_FOREST_DIRECT 2012-2025             968       1.355637 1.319194              -0.036443                  -2.762527                 4                 14            0.701228     0.713134        -0.011907            -0.071776              0.003387     False                    False          False   REJECT
+      TE RANDOM_FOREST_TE_RESIDUAL 2012-2025             968       1.315345 1.319194               0.003849                   0.291787                 4                 14            0.712169     0.713134        -0.000965            -0.009985              0.020186      True                    False           True   REJECT
+      WR      RANDOM_FOREST_DIRECT 2019-2025             929       1.813283 1.766940              -0.046343                  -2.622807                 1                  7            0.778274     0.786702        -0.008428            -0.083791             -0.010476     False                    False          False   REJECT
+
+TE residual active-period detail (2017-2025)
+Mean MAE improvement versus V2: 0.005804 PPG
+Active seasons improved: 4 of 9

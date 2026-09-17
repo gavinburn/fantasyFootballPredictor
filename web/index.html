@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102a23" />
+    <title>2026 Fantasy Football PPG Rankings</title>
+    <meta name="description" content="Explore 2026 standard-scoring fantasy points per active game projections by player, position, and team." />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <span class="mark" aria-hidden="true">FF<span>26</span></span>
+        <a href="#method" class="toplink">Model and validation <span aria-hidden="true">↘</span></a>
+      </header>
+
+      <section class="hero" aria-labelledby="title">
+        <div class="eyebrow"><span class="dot"></span> 2026 SEASON · STANDARD SCORING</div>
+        <h1 id="title">Find your next<br /><em>fantasy edge.</em></h1>
+        <p>Explore projected fantasy points per active game for 2026. Search a player or narrow the board by position and team.</p>
+        <div class="hero-note">A frozen preseason model snapshot · Veteran players only</div>
+      </section>
+
+      <section class="board" aria-labelledby="board-title">
+        <div class="board-heading">
+          <div>
+            <p class="section-label">THE BOARD</p>
+            <h2 id="board-title">Player projections</h2>
+          </div>
+          <p class="count" id="result-count" aria-live="polite">Loading rankings…</p>
+        </div>
+
+        <div class="controls">
+          <label class="search-wrap">
+            <span class="sr-only">Search player name</span>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="Search player name" autocomplete="off" />
+          </label>
+          <label class="select-wrap">
+            <span>Position</span>
+            <select id="position">
+              <option value="ALL">All positions</option>
+              <option value="QB">Quarterback</option>
+              <option value="RB">Running back</option>
+              <option value="WR">Wide receiver</option>
+              <option value="TE">Tight end</option>
+            </select>
+          </label>
+          <label class="select-wrap">
+            <span>Team</span>
+            <select id="team"><option value="ALL">All teams</option></select>
+          </label>
+          <label class="select-wrap sort-wrap">
+            <span>Sort</span>
+            <select id="sort">
+              <option value="ppg-desc">Projected PPG: high to low</option>
+              <option value="ppg-asc">Projected PPG: low to high</option>
+              <option value="name">Player name: A to Z</option>
+              <option value="rank">Position rank</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">POS RANK</th><th scope="col">PLAYER</th><th scope="col">POS</th><th scope="col">TEAM</th><th scope="col" class="numeric">PROJ. PPG</th></tr></thead>
+            <tbody id="rankings"><tr><td colspan="5" class="status">Loading rankings…</td></tr></tbody>
+          </table>
+        </div>
+        <p id="empty" class="empty" hidden>No players match those filters. Try a different name, position, or team.</p>
+      </section>
+
+      <section id="method" class="method" aria-labelledby="method-title">
+        <div>
+          <p class="section-label">THE MODEL</p>
+          <h2 id="method-title">Tested season by season.</h2>
+          <p>Each historical evaluation season was predicted using earlier seasons only. These are out-of-sample mean absolute errors in fantasy points per game, compared with using the player's previous-season PPG on the same cohort.</p>
+        </div>
+        <div class="metric-grid">
+          <div><span>QB · 2012–25</span><strong>3.25</strong><small>vs 3.70 baseline</small></div>
+          <div><span>RB · 2021–25</span><strong>2.36</strong><small>vs 2.63 baseline</small></div>
+          <div><span>WR · 2019–25</span><strong>1.77</strong><small>vs 2.01 baseline</small></div>
+          <div><span>TE · 2012–25</span><strong>1.32</strong><small>vs 1.50 baseline</small></div>
+        </div>
+      </section>
+
+      <footer>
+        <p><strong>How to read this:</strong> PPG is standard-scoring fantasy points per active regular-season game. It does not project games played or full-season points.</p>
+        <p>Models use historical data through 2025. Rankings are a frozen 2026 snapshot and may not reflect later roster news.</p>
+      </footer>
+    </main>
+  </body>
+</html>

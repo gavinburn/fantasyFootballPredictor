@@ -1,0 +1,93 @@
+PHASE 5 LEAKAGE AUDIT
+
+INPUT: data/processed/player_season_targets.parquet
+TARGET: target_ppg is regular-season standard fantasy_points_per_game in t.
+LAGS: exact calendar seasons t-1, t-2, and t-3 are joined by player_id.
+ROLLING MEANS: calculated only from those lagged columns.
+AGE CUTOFF: September 1 of prediction_season.
+QB CARRIES: individual official carries; source includes scrambles and kneels.
+TEAM CONTEXT: prediction_team is tracking-only final observed season team.
+CHANGED TEAM: unavailable without historical preseason rosters; excluded from V1.
+MISSING VALUES: retained for fold-local imputation in later phases.
+
+CHECKS PASSED
+First observed player-season has null lagged history.
+No raw player ID, player name, position, or target is a model input.
+No same-season performance statistic is a model input.
+Each table contains only its named position and unique player-season rows.
+
+QB
+rows: 1059
+prediction seasons: 2006-2025
+V1 model inputs: previous_season_ppg, three_season_mean_ppg, previous_season_games_played, previous_passing_attempts_per_game, previous_passing_yards_per_attempt, previous_passing_touchdowns_per_game, previous_interceptions_per_game, previous_qb_rushing_attempts_per_game, previous_qb_rushing_yards_per_game, previous_qb_rushing_touchdowns_per_game, age_entering_season, years_experience_entering_season
+missing percentage by V1 feature:
+{
+  "previous_season_ppg": 33.2389,
+  "three_season_mean_ppg": 24.9292,
+  "previous_season_games_played": 33.2389,
+  "previous_passing_attempts_per_game": 33.2389,
+  "previous_passing_yards_per_attempt": 33.711,
+  "previous_passing_touchdowns_per_game": 33.2389,
+  "previous_interceptions_per_game": 33.2389,
+  "previous_qb_rushing_attempts_per_game": 33.2389,
+  "previous_qb_rushing_yards_per_game": 33.2389,
+  "previous_qb_rushing_touchdowns_per_game": 33.2389,
+  "age_entering_season": 0.0,
+  "years_experience_entering_season": 0.0
+}
+
+RB
+rows: 2430
+prediction seasons: 2006-2025
+V1 model inputs: previous_season_ppg, three_season_mean_ppg, previous_season_games_played, previous_rushing_attempts_per_game, previous_rushing_yards_per_attempt, previous_rushing_touchdowns_per_game, previous_targets_per_game, previous_receiving_yards_per_game, previous_receiving_touchdowns_per_game, previous_opportunities_per_game, age_entering_season, years_experience_entering_season
+missing percentage by V1 feature:
+{
+  "previous_season_ppg": 32.3045,
+  "three_season_mean_ppg": 28.0658,
+  "previous_season_games_played": 32.3045,
+  "previous_rushing_attempts_per_game": 32.3045,
+  "previous_rushing_yards_per_attempt": 34.8971,
+  "previous_rushing_touchdowns_per_game": 32.3045,
+  "previous_targets_per_game": 32.3045,
+  "previous_receiving_yards_per_game": 32.3045,
+  "previous_receiving_touchdowns_per_game": 32.3045,
+  "previous_opportunities_per_game": 32.3045,
+  "age_entering_season": 0.0,
+  "years_experience_entering_season": 0.0
+}
+
+WR
+rows: 3673
+prediction seasons: 2006-2025
+V1 model inputs: previous_season_ppg, three_season_mean_ppg, previous_season_games_played, previous_targets_per_game, previous_receiving_yards_per_game, previous_receiving_yards_per_target, previous_receiving_touchdowns_per_game, previous_rushing_attempts_per_game, previous_rushing_yards_per_game, age_entering_season, years_experience_entering_season
+missing percentage by V1 feature:
+{
+  "previous_season_ppg": 31.119,
+  "three_season_mean_ppg": 26.2456,
+  "previous_season_games_played": 31.119,
+  "previous_targets_per_game": 31.119,
+  "previous_receiving_yards_per_game": 31.119,
+  "previous_receiving_yards_per_target": 42.0093,
+  "previous_receiving_touchdowns_per_game": 31.119,
+  "previous_rushing_attempts_per_game": 31.119,
+  "previous_rushing_yards_per_game": 31.119,
+  "age_entering_season": 0.0,
+  "years_experience_entering_season": 0.0
+}
+
+TE
+rows: 1964
+prediction seasons: 2006-2025
+V1 model inputs: previous_season_ppg, three_season_mean_ppg, previous_season_games_played, previous_targets_per_game, previous_receiving_yards_per_game, previous_receiving_yards_per_target, previous_receiving_touchdowns_per_game, age_entering_season, years_experience_entering_season
+missing percentage by V1 feature:
+{
+  "previous_season_ppg": 29.9898,
+  "three_season_mean_ppg": 24.9491,
+  "previous_season_games_played": 29.9898,
+  "previous_targets_per_game": 29.9898,
+  "previous_receiving_yards_per_game": 29.9898,
+  "previous_receiving_yards_per_target": 39.9185,
+  "previous_receiving_touchdowns_per_game": 29.9898,
+  "age_entering_season": 0.0,
+  "years_experience_entering_season": 0.0
+}
