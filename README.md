@@ -2,6 +2,8 @@
 
 Position-specific models project **standard-scoring fantasy points per active regular-season game** for quarterbacks, running backs, wide receivers, and tight ends. This portfolio repo includes the historical modeling code, selected validation results, frozen 2026 inference inputs and models, and a small rankings browser.
 
+**Live rankings:** [fantasy-football-predictor-one.vercel.app](https://fantasy-football-predictor-one.vercel.app/)
+
 **Try the rankings locally:** `python3 -m http.server 8000 --directory web`, then open `http://localhost:8000`. Search by player, filter by position or team, and sort the table. The page uses the checked-in 2026 prediction snapshot; it does not retrain or call a live API.
 
 ## What the model does
